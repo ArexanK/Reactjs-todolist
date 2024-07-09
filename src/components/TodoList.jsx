@@ -1,17 +1,15 @@
-import TodoCard from "./TodoCard";
-export default function Todolist() {
-  let todos = [
-    "Build a ReactJS todo list app",
-    "Build a ReactJS app with Nasa API",
-    "Build a ReactJS Chatbot",
-  ];
+import TodoCard from './TodoCard';
+
+// de-structure
+export default function Todolist(props) {
+  const { todos } = props;
 
   return (
     <ul className="main">
       {todos.map((todo, todoIndex) => {
-        // map for every element i the list
+        // map for every element in the list
         return (
-          <TodoCard key={todoIndex}>
+          <TodoCard {...props} key={todoIndex} index={todoIndex}>
             <p>{todo}</p>
           </TodoCard>
         );
